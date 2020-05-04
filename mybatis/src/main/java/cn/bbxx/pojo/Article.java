@@ -1,4 +1,3 @@
-
 package cn.bbxx.pojo;
 
 public class Article {
@@ -33,4 +32,11 @@ public class Article {
         this.username = username;
     }
 
+    @Override
+    public String toString() {
+        return "Article{" +
+                "title='" + title + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
