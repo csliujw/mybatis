@@ -3,7 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.bbxx.dao.ArticleMapper">
-    <select id="select" resultType="cn.bbxx.pojo.Article">
-select title,username from article;
-</select>
+    <select id="select" resultType="Article">
+        select title,username from article;
+    </select>
+
+    <select id="selectCondition" parameterType="Article" resultType="Article">
+        select title,username,readcount,date from article where username=#{username};
+    </select>
+
+    <insert id="insert" parameterType="Article">
+        insert into article(title,username,readcount,date) values(#{title},#{username},#{readcount},#{date})
+    </insert>
+
+    <delete id="delete" parameterType="Article">
+        delete from article where title=#{title}
+    </delete>
+
 </mapper>
